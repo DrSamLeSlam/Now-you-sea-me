@@ -17,12 +17,13 @@ public class Worm {
         this.width = width;
         this.height = height;
         position = new Vector2(x,y);
-        velocity = new Vector2(20,20);
-        acceleration = new Vector2(20,20);
+        velocity = new Vector2(0,0);
+        acceleration = new Vector2(0,0.1f);
     }
     public void update(float delta){
+    	
         position.y+=velocity.y;
-        position.x=velocity.x;
+        position.x+=velocity.x;
         if (position.y < 0){
             position.y = 0;
         }
@@ -31,17 +32,28 @@ public class Worm {
         }
     }
     public void KeyUp(){
-        velocity.y=-1;
+        acceleration.y=0.5f;
     }
     public void KeyDown(){
-        velocity.y=1;
-
+    	acceleration.y=-0.5f;
     }
     public void KeyLeft(){
         velocity.x=-1;
     }
     public void KeyRight(){
         velocity.x=1;
+    }
+    public void EndKeyUp(){
+        velocity.y=0;
+    }
+    public void EndKeyDown(){
+        velocity.y=0;
+    }
+    public void EndKeyLeft(){
+        velocity.x=0;
+    }
+    public void EndKeyRight(){
+        velocity.x=0;
     }
     public float getX(){
         return position.x;

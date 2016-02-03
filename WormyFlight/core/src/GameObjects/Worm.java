@@ -26,14 +26,14 @@ public class Worm {
         position.y+=velocity.y;
         position.x+=velocity.x;
         
-        if (velocity.x>3) {
-        	velocity.x=3;
-        } if (velocity.y>3) {
-        	velocity.y=3;
-        } if (velocity.x<-3) {
-        	velocity.x=-3;
-        } if (velocity.y<-3) {
-        	velocity.y=-3;
+        if (velocity.x>1) {
+        	velocity.x=1;
+        } if (velocity.y>1) {
+        	velocity.y=1;
+        } if (velocity.x<-1) {
+        	velocity.x=-1;
+        } if (velocity.y<-1) {
+        	velocity.y=-1;
         }
         if (position.y < 0){
             position.y = 0;
@@ -42,6 +42,12 @@ public class Worm {
         if (position.y > 184){
             position.y = 184;
             velocity.y=0;
+        } if (position.x<-20) {
+        	position.x=-20;
+        	velocity.x=0;
+        } if (position.x>75) {
+        	position.x=75;
+        	velocity.x=0;
         }
     }
     public void KeyUp(){

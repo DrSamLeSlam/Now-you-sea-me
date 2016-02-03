@@ -28,7 +28,6 @@ public class GameRenderer {
     }
     public void render() {
         Worm worm = myWorld.getWorm();
-        //ocean
         Gdx.gl.glClearColor(51 / 255.0f, 102 / 255.0f, 255 / 255.0f, 1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 

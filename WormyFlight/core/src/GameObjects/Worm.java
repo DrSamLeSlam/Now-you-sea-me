@@ -18,43 +18,57 @@ public class Worm {
         this.height = height;
         position = new Vector2(x,y);
         velocity = new Vector2(0,0);
-        acceleration = new Vector2(0,0.1f);
+        acceleration = new Vector2(0,0);
     }
     public void update(float delta){
-    	
+    	velocity.x+=acceleration.x;
+    	velocity.y+=acceleration.y;
         position.y+=velocity.y;
         position.x+=velocity.x;
+        
+        if (velocity.x>3) {
+        	velocity.x=3;
+        } if (velocity.y>3) {
+        	velocity.y=3;
+        } if (velocity.x<-3) {
+        	velocity.x=-3;
+        } if (velocity.y<-3) {
+        	velocity.y=-3;
+        }
         if (position.y < 0){
             position.y = 0;
+            velocity.y=0;
         }
         if (position.y > 184){
             position.y = 184;
+            velocity.y=0;
         }
     }
     public void KeyUp(){
-        acceleration.y=0.5f;
+        acceleration.y=-0.05f;
     }
     public void KeyDown(){
-    	acceleration.y=-0.5f;
+    	acceleration.y=0.05f;
     }
     public void KeyLeft(){
-        velocity.x=-1;
+        acceleration.x=-0.05f;
     }
     public void KeyRight(){
-        velocity.x=1;
+        acceleration.x=0.05f;
     }
     public void EndKeyUp(){
-        velocity.y=0;
+        acceleration.y=0;
     }
     public void EndKeyDown(){
-        velocity.y=0;
+    	acceleration.y=0;
     }
     public void EndKeyLeft(){
-        velocity.x=0;
+    	acceleration.x=0;
     }
     public void EndKeyRight(){
-        velocity.x=0;
+    	acceleration.x=0;
     }
+    
     public float getX(){
         return position.x;
     }

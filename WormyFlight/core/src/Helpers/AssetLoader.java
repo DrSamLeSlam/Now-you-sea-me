@@ -10,9 +10,13 @@ public class AssetLoader {
     public static Texture texture;
     public static Texture flashlight;
     public static Texture background;
+    public static Texture DarkBlueFlashlight;
+    public static Texture MedBlueFlashlight;
     public static Sprite sprite;
     public static Sprite Fsprite;
     public static Sprite BGsprite;
+    public static Sprite DarkBlueFSprite;
+    public static Sprite MedBlueFSprite;
     
     public static void load(){
         texture = new Texture(Gdx.files.internal("android/assets/data/Diver.png"));
@@ -23,11 +27,18 @@ public class AssetLoader {
         Fsprite.flip(false,true);
         background = new Texture(Gdx.files.internal("android/assets/data/background.jpg"));
         BGsprite = new Sprite(background);
+        DarkBlueFlashlight = new Texture(Gdx.files.internal("android/assets/data/DarkBlue.png"));
+        DarkBlueFSprite = new Sprite(DarkBlueFlashlight);
+        MedBlueFlashlight = new Texture(Gdx.files.internal("android/assets/data/MedBlue.png"));
+        MedBlueFSprite = new Sprite(MedBlueFlashlight);
+        
     }
 
     public static void dispose(){
         texture.dispose();
         flashlight.dispose();
         background.dispose();
+        DarkBlueFlashlight.dispose();
+       MedBlueFlashlight.dispose();
     }
 }

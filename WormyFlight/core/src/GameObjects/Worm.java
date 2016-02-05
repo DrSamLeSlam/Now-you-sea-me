@@ -11,6 +11,14 @@ public class Worm {
     private Vector2 position;
     private Vector2 velocity;
     private Vector2 acceleration;
+    
+    private float time;
+    private Vector2 mousePos;
+    private Vector2 distance;
+    private float d;
+    
+    float velocityNet;
+    float accelerationNet;
 
     public int width;
     public int height;
@@ -39,11 +47,13 @@ public class Worm {
         } if (velocity.y<-1) {
         	velocity.y=-1;
         }
+        
+        
+        
         if (position.y < 0){
             position.y = 0;
             velocity.y=0;
-        }
-        if (position.y > 184){
+        } if (position.y > 184){
             position.y = 184;
             velocity.y=0;
         } if (position.x<-20) {
@@ -53,6 +63,19 @@ public class Worm {
         	position.x=75;
         	velocity.x=0;
         }
+        distance.x=mousePos.x-position.x;
+        distance.y=mousePos.y-position.y;
+        velocityNet = (float) Math.sqrt((Math.pow(velocity.x,2)+Math.pow(velocity.y, 2)));
+        accelerationNet = (float) Math.sqrt((Math.pow(acceleration.x,2)+Math.pow(acceleration.y, 2)));
+        d=(float) Math.sqrt((Math.pow(distance.x,2)+Math.pow(distance.y, 2)));
+        time = velocityNet/accelerationNet;
+        if( velocityNet * time / 2 >= d ) {
+        	
+        }
+    }
+    public void Move(int mouseX, int mouseY) {
+    	mousePos.x=mouseX;
+    	mousePos.y=mouseY;
     }
     public void KeyUp(){
         acceleration.y=-0.05f;
@@ -63,16 +86,15 @@ public class Worm {
     public void KeyLeft(){
         acceleration.x=-0.05f;
         if (turn == false){
-        	 AssetLoader.sprite.flip(true, false);
-        	 turn = true;
+        	 //AssetLoader.sprite.flip(true, false);
+        	 //turn = true;
         }
-       
     }
     public void KeyRight(){
         acceleration.x=0.05f;
         if (turn == false){
-        	 AssetLoader.sprite.flip(true, false);
-        	 turn = true;
+        	 //AssetLoader.sprite.flip(true, false);
+        	 //turn = true;
         }       
     }
     public void EndKeyUp(){

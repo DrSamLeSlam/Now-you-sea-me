@@ -65,7 +65,8 @@ public class InputHandler implements InputProcessor {
 
     @Override
     public boolean mouseMoved(int screenX, int screenY) {
-
+    	System.out.println(screenX + " " + screenY);
+    	myWorm.Move(screenX,screenY);
         return false;
     }
 

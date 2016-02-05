@@ -2,8 +2,10 @@ package GameObjects;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.math.Vector2;
+import com.sun.org.apache.xpath.internal.operations.Bool;
 
 import GameWorld.GameWorld;
+import Helpers.AssetLoader;
 
 public class Worm {
     private Vector2 position;
@@ -12,6 +14,8 @@ public class Worm {
 
     public int width;
     public int height;
+    
+    public boolean turn = false;
 
     public Worm(float x, float y, int width, int height){
         this.width = width;
@@ -58,9 +62,18 @@ public class Worm {
     }
     public void KeyLeft(){
         acceleration.x=-0.05f;
+        if (turn == false){
+        	 AssetLoader.sprite.flip(true, false);
+        	 turn = true;
+        }
+       
     }
     public void KeyRight(){
         acceleration.x=0.05f;
+        if (turn == false){
+        	 AssetLoader.sprite.flip(true, false);
+        	 turn = true;
+        }       
     }
     public void EndKeyUp(){
         acceleration.y=0;
@@ -70,11 +83,12 @@ public class Worm {
     }
     public void EndKeyLeft(){
     	acceleration.x=0;
+    	turn = false;
     }
     public void EndKeyRight(){
     	acceleration.x=0;
+    	turn = false;
     }
-    
     public float getX(){
         return position.x;
     }

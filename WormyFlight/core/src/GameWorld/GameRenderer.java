@@ -38,7 +38,19 @@ public class GameRenderer {
         spriteBatch.begin();
         spriteBatch.draw(AssetLoader.sprite, worm.getX(), worm.getY(), 60, 30);
         spriteBatch.enableBlending();
-        spriteBatch.draw(AssetLoader.flashlight, worm.getX() - 240, worm.getY() - 290, 600, 600);
+        
+       if (worm.getY()>90)
+       spriteBatch.draw(AssetLoader.flashlight, worm.getX() - 240, worm.getY() - 290, 600, 600);
+       
+        else if (worm.getY()<90 && worm.getY()>45) 
+       spriteBatch.draw(AssetLoader.DarkBlueFSprite, worm.getX()-240, worm.getY()-290, 600, 600);
+       
+        else
+        	spriteBatch.draw(AssetLoader.MedBlueFSprite, worm.getX()-240, worm.getY()-290, 600, 600);
+        
+        	
+        	
+        
         spriteBatch.end();
 
     }

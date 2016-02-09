@@ -12,13 +12,16 @@ public class Worm {
     private Vector2 velocity;
     private Vector2 acceleration;
     
-    private float time;
-    private Vector2 mousePos;
     private Vector2 distance;
-    private float d;
+    private Vector2 mousePos;
+    
+    private float time;
+    private float maxSpeed;
+    private float theta;
     
     float velocityNet;
     float accelerationNet;
+    float distanceNet;
 
     public int width;
     public int height;
@@ -31,8 +34,21 @@ public class Worm {
         position = new Vector2(x,y);
         velocity = new Vector2(0,0);
         acceleration = new Vector2(0,0);
+        mousePos = new Vector2(20,200);
+        distance = new Vector2(0,0);
     }
     public void update(float delta){
+    	
+    	distance.x = mousePos.x - position.x;
+    	distance.y = mousePos.y - position.y;
+    	
+    	System.out.println(distance.x + ", " + distance.y);
+    	System.out.println(distance.y/distance.x);
+    	
+    	theta = (float) Math.atan(distance.y/distance.x);
+    	
+    	System.out.println(theta);
+    	
     	velocity.x+=acceleration.x;
     	velocity.y+=acceleration.y;
         position.y+=velocity.y;
@@ -48,8 +64,6 @@ public class Worm {
         	velocity.y=-1;
         }
         
-        
-        
         if (position.y < 0){
             position.y = 0;
             velocity.y=0;
@@ -63,19 +77,14 @@ public class Worm {
         	position.x=75;
         	velocity.x=0;
         }
-        distance.x=mousePos.x-position.x;
-        distance.y=mousePos.y-position.y;
-        velocityNet = (float) Math.sqrt((Math.pow(velocity.x,2)+Math.pow(velocity.y, 2)));
-        accelerationNet = (float) Math.sqrt((Math.pow(acceleration.x,2)+Math.pow(acceleration.y, 2)));
-        d=(float) Math.sqrt((Math.pow(distance.x,2)+Math.pow(distance.y, 2)));
-        time = velocityNet/accelerationNet;
-        if( velocityNet * time / 2 >= d ) {
-        	
-        }
+        
+        //System.out.println(mousePos.x+" "+mousePos.y);
+        
+        
     }
     public void Move(int mouseX, int mouseY) {
-    	mousePos.x=mouseX;
-    	mousePos.y=mouseY;
+    	//mousePos.x=mouseX;
+    	//mousePos.y=mouseY;
     }
     public void KeyUp(){
         acceleration.y=-0.05f;

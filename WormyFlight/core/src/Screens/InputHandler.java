@@ -17,16 +17,16 @@ public class InputHandler implements InputProcessor {
     @Override
     public boolean keyDown(int keycode) {
         if (keycode == Input.Keys.DPAD_UP){
-            myWorm.KeyUp();
+            //myWorm.KeyUp();
         }
         if (keycode == Input.Keys.DPAD_DOWN){
-            myWorm.KeyDown();
+            //myWorm.KeyDown();
         }
         if (keycode == Input.Keys.DPAD_LEFT){
-            myWorm.KeyLeft();
+            //myWorm.KeyLeft();
         }
         if (keycode == Input.Keys.DPAD_RIGHT){
-            myWorm.KeyRight();
+            //myWorm.KeyRight();
         }
         return false;
     }
@@ -34,16 +34,16 @@ public class InputHandler implements InputProcessor {
     @Override
     public boolean keyUp(int keycode) {
     	if (keycode == Input.Keys.DPAD_UP){
-            myWorm.EndKeyUp();
+            //myWorm.EndKeyUp();
         }
         if (keycode == Input.Keys.DPAD_DOWN){
-            myWorm.EndKeyDown();
+            //myWorm.EndKeyDown();
         }
         if (keycode == Input.Keys.DPAD_LEFT){
-            myWorm.EndKeyLeft();
+            //myWorm.EndKeyLeft();
         }
         if (keycode == Input.Keys.DPAD_RIGHT){
-            myWorm.EndKeyRight();
+            //myWorm.EndKeyRight();
         }
         return false;
     }
@@ -65,7 +65,6 @@ public class InputHandler implements InputProcessor {
 
     @Override
     public boolean mouseMoved(int screenX, int screenY) {
-    	System.out.println(screenX + " " + screenY);
     	myWorm.Move(screenX,screenY);
         return false;
     }

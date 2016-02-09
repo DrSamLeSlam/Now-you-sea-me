@@ -10,7 +10,7 @@ public class GameWorld {
     private Worm worm;
     private Ground ground;
     public GameWorld(){
-        worm = new Worm(64,50,20,20);
+        worm = new Worm(30,100,20,20);
         ground = new Ground(0,400,408, 20);
     }
     public void update(float delta) {

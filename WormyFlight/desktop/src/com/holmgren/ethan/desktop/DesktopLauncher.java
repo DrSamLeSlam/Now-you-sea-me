@@ -7,8 +7,8 @@ import com.holmgren.ethan.NowYouSeaMe;
 public class DesktopLauncher {
 	public static void main (String[] arg) {
 		LwjglApplicationConfiguration config = new LwjglApplicationConfiguration();
-		config.height = 720;
-		config.width = 136 * 3;
+		config.width = 960;
+		config.height = 540;
 		new LwjglApplication(new NowYouSeaMe(), config);
 	}
 }

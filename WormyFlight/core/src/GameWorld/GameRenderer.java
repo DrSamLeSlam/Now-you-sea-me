@@ -1,6 +1,7 @@
 package GameWorld;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
@@ -20,7 +21,7 @@ public class GameRenderer {
     public GameRenderer(GameWorld world) {
         myWorld = world;
         cam = new OrthographicCamera();
-        cam.setToOrtho(true, 136, 204);
+        cam.setToOrtho(true, 480, 270);
         spriteBatch = new SpriteBatch();
         spriteBatch.setProjectionMatrix(cam.combined);
 
@@ -39,19 +40,21 @@ public class GameRenderer {
         spriteBatch.draw(AssetLoader.sprite, worm.getX(), worm.getY(), 60, 30);
         spriteBatch.enableBlending();
         
-       if (worm.getY()>90)
-       spriteBatch.draw(AssetLoader.flashlight, worm.getX() - 240, worm.getY() - 290, 600, 600);
+        if (worm.getY()>90)
+        	spriteBatch.draw(AssetLoader.flashlight, worm.getX() - 240, worm.getY() - 290, 600, 600);
        
         else if (worm.getY()<90 && worm.getY()>45) 
-       spriteBatch.draw(AssetLoader.DarkBlueFSprite, worm.getX()-240, worm.getY()-290, 600, 600);
+        	spriteBatch.draw(AssetLoader.DarkBlueFSprite, worm.getX()-240, worm.getY()-290, 600, 600);
        
         else
         	spriteBatch.draw(AssetLoader.MedBlueFSprite, worm.getX()-240, worm.getY()-290, 600, 600);
         
-        	
-        	
-        
         spriteBatch.end();
+        
+        shapeRenderer.begin(ShapeType.Filled);
+        shapeRenderer.setColor(Color.RED);
+        shapeRenderer.rect(100, 100, 3, 3 );
+        shapeRenderer.end();
 
     }
 }

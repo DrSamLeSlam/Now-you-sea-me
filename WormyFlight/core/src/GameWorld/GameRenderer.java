@@ -52,8 +52,7 @@ public class GameRenderer {
         spriteBatch.end();
         
         shapeRenderer.begin(ShapeType.Filled);
-        shapeRenderer.setColor(Color.RED);
-        shapeRenderer.rect(100, 100, 3, 3 );
+        //if we need any shapes...
         shapeRenderer.end();
 
     }

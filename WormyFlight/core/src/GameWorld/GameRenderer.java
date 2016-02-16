@@ -37,17 +37,15 @@ public class GameRenderer {
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 
         spriteBatch.begin();
-        spriteBatch.draw(AssetLoader.sprite, diver.getX(), diver.getY(), 60, 30);
+        spriteBatch.draw(AssetLoader.DiverSprite, diver.getX(), diver.getY(), 60, 30);
         spriteBatch.enableBlending();
         
-        if (diver.getY()>90)
-        	spriteBatch.draw(AssetLoader.flashlight, diver.getX() - 240, diver.getY() - 290, 600, 600);
+        
+        //else if (diver.getY()<90 && diver.getY()>45) 
+        	//spriteBatch.draw(AssetLoader.DarkBlueFSprite, diver.getX()-240, diver.getY()-290, 600, 600);
        
-        else if (diver.getY()<90 && diver.getY()>45) 
-        	spriteBatch.draw(AssetLoader.DarkBlueFSprite, diver.getX()-240, diver.getY()-290, 600, 600);
-       
-        else
-        	spriteBatch.draw(AssetLoader.MedBlueFSprite, diver.getX()-240, diver.getY()-290, 600, 600);
+        //else
+        	//spriteBatch.draw(AssetLoader.MedBlueFSprite, diver.getX()-240, diver.getY()-290, 600, 600);
         
         spriteBatch.end();
         

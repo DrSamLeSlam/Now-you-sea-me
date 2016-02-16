@@ -7,9 +7,9 @@ import com.badlogic.gdx.graphics.g2d.Sprite;
 
 public class AssetLoader {
 
-    public static Texture texture;
-    public static Texture flashlight;
-    public static Texture background;
+    public static Texture Diver;
+    
+    public static Sprite DiverSprite;
     
     public static Texture Opaque1;
     public static Texture Opaque2;
@@ -21,9 +21,6 @@ public class AssetLoader {
     public static Texture Opaque8;
     public static Texture Opaque9;
     public static Texture Opaque10;
-    
-    public static Sprite sprite;
-    public static Sprite BGSprite;
     
     public static Sprite OpaqueSprite1;
     public static Sprite OpaqueSprite2;
@@ -37,16 +34,9 @@ public class AssetLoader {
     public static Sprite OpaqueSprite10;
     
     public static void load(){
-        texture = new Texture(Gdx.files.internal("android/assets/data/Diver.png"));
-        sprite = new Sprite(texture);
-        sprite.flip(false,true);
-        
-//        flashlight = new Texture(Gdx.files.internal("android/assets/data/Dark.png"));
-//        Dark = new Sprite(flashlight);
-//        Dark.flip(false,true);
-        
-        background = new Texture(Gdx.files.internal("android/assets/data/background.png"));
-        BGSprite = new Sprite(background);
+        Diver = new Texture(Gdx.files.internal("android/assets/data/Diver.png"));
+        DiverSprite = new Sprite(Diver);
+        DiverSprite.flip(false,true);
         
         Opaque1 = new Texture(Gdx.files.internal("android/assets/data/Opaque.png"));
         OpaqueSprite1 = new Sprite(Opaque1);
@@ -73,9 +63,8 @@ public class AssetLoader {
     }
 
     public static void dispose(){
-        texture.dispose();
-        flashlight.dispose();
-        background.dispose();
+    	Diver.dispose();
+    	
         Opaque1.dispose();
         Opaque2.dispose();
         Opaque3.dispose();

@@ -160,9 +160,17 @@ public class Diver {
     public float getWidth() {
         return width;
     }
-
     public float getHeight() {
         return height;
+    }
+    public float getTheta() {
+    	return theta;
+    }
+    public Vector2 getVelocity() {
+    	return velocity;
+    }
+    public Vector2 getAcceleration() {
+    	return acceleration;
     }
 
 }

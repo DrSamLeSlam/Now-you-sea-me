@@ -17,6 +17,8 @@ public class GameRenderer {
     private OrthographicCamera cam;
     private ShapeRenderer shapeRenderer;
     private SpriteBatch spriteBatch;
+    private float xwidth = 480;
+    private float yheight = 270;
 
     public GameRenderer(GameWorld world) {
         myWorld = world;
@@ -37,6 +39,7 @@ public class GameRenderer {
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 
         spriteBatch.begin();
+
         spriteBatch.draw(AssetLoader.DiverSprite, diver.getX(), diver.getY(), 60, 30);
         spriteBatch.enableBlending();
         
@@ -46,6 +49,38 @@ public class GameRenderer {
        
         //else
         	//spriteBatch.draw(AssetLoader.MedBlueFSprite, diver.getX()-240, diver.getY()-290, 600, 600);
+        
+        
+        
+        if (diver.getY() < (yheight / 10))
+        spriteBatch.draw(AssetLoader.Opaque10, diver.getX() - 240, diver.getY() - 290, 600, 600);
+        
+        else if (diver.getY() > (yheight/10) && diver.getY() < (2 * (yheight/10)))
+        	spriteBatch.draw(AssetLoader.Opaque9, diver.getX() - 240, diver.getY() - 290, 600, 600);
+        
+        else if (diver.getY() > (2*(yheight/10)) && diver.getY() < (3 * (yheight/10)))
+        	spriteBatch.draw(AssetLoader.Opaque8, diver.getX() - 240, diver.getY() - 290, 600, 600);
+        
+        else if (diver.getY() > (3*(yheight/10)) && diver.getY() < (4 * (yheight/10)))
+        	spriteBatch.draw(AssetLoader.Opaque7, diver.getX() - 240, diver.getY() - 290, 600, 600);
+        
+        else if (diver.getY() > (4*(yheight/10)) && diver.getY() < (5 * (yheight/10)))
+        	spriteBatch.draw(AssetLoader.Opaque6, diver.getX() - 240, diver.getY() - 290, 600, 600);
+        
+        else if (diver.getY() > (5*(yheight/10)) && diver.getY() < (6 * (yheight/10)))
+        	spriteBatch.draw(AssetLoader.Opaque5, diver.getX() - 240, diver.getY() - 290, 600, 600);
+        
+        else if (diver.getY() > (6*(yheight/10)) && diver.getY() < (7 * (yheight/10)))
+        	spriteBatch.draw(AssetLoader.Opaque4, diver.getX() - 240, diver.getY() - 290, 600, 600);
+        
+        else if (diver.getY() > (7*(yheight/10)) && diver.getY() < (8 * (yheight/10)))
+        	spriteBatch.draw(AssetLoader.Opaque3, diver.getX() - 240, diver.getY() - 290, 600, 600);
+        
+        else if (diver.getY() > (8*(yheight/10)) && diver.getY() < (9 * (yheight/10)))
+        	spriteBatch.draw(AssetLoader.Opaque2, diver.getX() - 240, diver.getY() - 290, 600, 600);
+        
+        else if (diver.getY() > (9*(yheight/10)) && diver.getY() < (10 * (yheight/10)))
+        	spriteBatch.draw(AssetLoader.Opaque1, diver.getX() - 240, diver.getY() - 290, 600, 600);
         
         spriteBatch.end();
         

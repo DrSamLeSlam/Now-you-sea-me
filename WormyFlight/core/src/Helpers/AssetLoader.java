@@ -22,6 +22,9 @@ public class AssetLoader {
     public static Texture Opaque9;
     public static Texture Opaque10;
     
+    public static Sprite sprite;
+    public static Sprite BGSprite;
+
     public static Sprite OpaqueSprite1;
     public static Sprite OpaqueSprite2;
     public static Sprite OpaqueSprite3;
@@ -37,6 +40,11 @@ public class AssetLoader {
         Diver = new Texture(Gdx.files.internal("android/assets/data/Diver.png"));
         DiverSprite = new Sprite(Diver);
         DiverSprite.flip(false,true);
+
+        
+//        flashlight = new Texture(Gdx.files.internal("android/assets/data/Dark.png"));
+//        Dark = new Sprite(flashlight);
+//        Dark.flip(false,true);
         
         Opaque1 = new Texture(Gdx.files.internal("android/assets/data/Opaque.png"));
         OpaqueSprite1 = new Sprite(Opaque1);

@@ -9,7 +9,7 @@ import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer.ShapeType;
 
 import GameObjects.Ground;
-import GameObjects.Worm;
+import GameObjects.Diver;
 import Helpers.AssetLoader;
 
 public class GameRenderer {
@@ -29,7 +29,7 @@ public class GameRenderer {
         shapeRenderer.setProjectionMatrix(cam.combined);
     }
     public void render() {
-        Worm worm = myWorld.getWorm();
+        Diver diver = myWorld.getDiver();
 
         Ground ground = myWorld.getGround();
 
@@ -37,17 +37,17 @@ public class GameRenderer {
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 
         spriteBatch.begin();
-        spriteBatch.draw(AssetLoader.sprite, worm.getX(), worm.getY(), 60, 30);
+        spriteBatch.draw(AssetLoader.sprite, diver.getX(), diver.getY(), 60, 30);
         spriteBatch.enableBlending();
         
-        if (worm.getY()>90)
-        	spriteBatch.draw(AssetLoader.flashlight, worm.getX() - 240, worm.getY() - 290, 600, 600);
+        if (diver.getY()>90)
+        	spriteBatch.draw(AssetLoader.flashlight, diver.getX() - 240, diver.getY() - 290, 600, 600);
        
-        else if (worm.getY()<90 && worm.getY()>45) 
-        	spriteBatch.draw(AssetLoader.DarkBlueFSprite, worm.getX()-240, worm.getY()-290, 600, 600);
+        else if (diver.getY()<90 && diver.getY()>45) 
+        	spriteBatch.draw(AssetLoader.DarkBlueFSprite, diver.getX()-240, diver.getY()-290, 600, 600);
        
         else
-        	spriteBatch.draw(AssetLoader.MedBlueFSprite, worm.getX()-240, worm.getY()-290, 600, 600);
+        	spriteBatch.draw(AssetLoader.MedBlueFSprite, diver.getX()-240, diver.getY()-290, 600, 600);
         
         spriteBatch.end();
         

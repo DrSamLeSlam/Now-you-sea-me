@@ -1,13 +1,8 @@
 package GameObjects;
 
-import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.math.Vector2;
-import com.sun.org.apache.xpath.internal.operations.Bool;
 
-import GameWorld.GameWorld;
-import Helpers.AssetLoader;
-
-public class Worm {
+public class Diver {
     private Vector2 position;
     private Vector2 velocity;
     private Vector2 acceleration;
@@ -17,7 +12,7 @@ public class Worm {
     
     private double d;
     private double v;
-    private double a;
+    
     private float theta;
     private float thetaV;
     
@@ -29,7 +24,7 @@ public class Worm {
     
     public boolean turn = false;
 
-    public Worm(float x, float y, int width, int height){
+    public Diver(float x, float y, int width, int height){
         this.width = width;
         this.height = height;
         position = new Vector2(x,y);
@@ -38,7 +33,7 @@ public class Worm {
         mousePos = new Vector2(0,0);
         distance = new Vector2(0,0);
     }
-    public void update(float delta){
+    public void update(float delta) {
     	
     	distance.x = mousePos.x - position.x - 47; //components of distance between mouse and diver
     	distance.y = mousePos.y - position.y - 5;
@@ -115,7 +110,6 @@ public class Worm {
         }
         
         //System.out.println(mousePos.x+" "+mousePos.y);
-        
         
     }
     public void Move(int mouseX, int mouseY) {

@@ -3,12 +3,12 @@ package Screens;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.InputProcessor;
 import com.badlogic.gdx.math.Vector2;
-import GameObjects.Worm;
+import GameObjects.Diver;
 
 public class InputHandler implements InputProcessor {
-    private Worm myWorm;
-    public InputHandler(Worm worm){
-        myWorm = worm;
+    private Diver myDiver;
+    public InputHandler(Diver worm){
+        myDiver = worm;
     }
     @Override
     public boolean touchDown(int screenX, int screenY, int pointer, int button) {
@@ -65,7 +65,7 @@ public class InputHandler implements InputProcessor {
 
     @Override
     public boolean mouseMoved(int screenX, int screenY) {
-    	myWorm.Move(screenX,screenY);
+    	myDiver.Move(screenX,screenY);
         return false;
     }
 

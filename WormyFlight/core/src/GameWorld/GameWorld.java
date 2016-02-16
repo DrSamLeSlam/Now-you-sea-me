@@ -4,21 +4,21 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.math.Rectangle;
 
 import GameObjects.Ground;
-import GameObjects.Worm;
+import GameObjects.Diver;
 
 public class GameWorld {
-    private Worm worm;
+    private Diver diver;
     private Ground ground;
     public GameWorld(){
-        worm = new Worm(100,100,20,20);
+        diver = new Diver(100,100,20,20);
         ground = new Ground(0,400,408, 20);
     }
     public void update(float delta) {
-        worm.update(delta);
+        diver.update(delta);
         ground.update(delta);
     }
-    public Worm getWorm(){
-        return worm;
+    public Diver getDiver(){
+        return diver;
     }
     public Ground getGround(){
     	return ground;

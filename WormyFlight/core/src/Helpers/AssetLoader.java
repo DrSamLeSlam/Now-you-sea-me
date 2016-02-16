@@ -22,6 +22,8 @@ public class AssetLoader {
     public static Texture Opaque9;
     public static Texture Opaque10;
     
+    
+    
     public static Sprite sprite;
     public static Sprite BGSprite;
     
@@ -45,8 +47,9 @@ public class AssetLoader {
 //        Dark = new Sprite(flashlight);
 //        Dark.flip(false,true);
         
-        background = new Texture(Gdx.files.internal("android/assets/data/background.png"));
+        background = new Texture(Gdx.files.internal("android/assets/data/ocean2wide.png"));
         BGSprite = new Sprite(background);
+        //BGSprite.flip(false, true);
         
         Opaque1 = new Texture(Gdx.files.internal("android/assets/data/Opaque.png"));
         OpaqueSprite1 = new Sprite(Opaque1);

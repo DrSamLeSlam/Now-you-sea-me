@@ -7,16 +7,19 @@ import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.Screen;
 
 
-public class Ground {
+public class Background {
 
 	private Vector2 position;
+	
+	private float layer;
 	
 	public int width;
 	public int height;
 	
-	public Ground(float x, float y, int width, int height){
+	public Background(float x, float y, int width, int height, float layer){
 		this.width = width;
 		this.height = height;
+		this.layer = layer;
 		position = new Vector2(x,y);
 	}
 	

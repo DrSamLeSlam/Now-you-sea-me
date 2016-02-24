@@ -33,20 +33,14 @@ public class Diver {
         mousePos = new Vector2(0,0);
         distance = new Vector2(0,0);
     }
-    public void update(float delta) {
+    public int update(float delta) {
     	
     	distance.x = mousePos.x - position.x - 47; //components of distance between mouse and diver
     	distance.y = mousePos.y - position.y - 5;
     	
     	d = Math.sqrt(Math.pow(distance.x, 2) + Math.pow(distance.y, 2)); //d is the mangnitude of the distance between the mosue and the diver
     	
-    	//System.out.println(distance.x + ", " + distance.y);
-    	//System.out.println( "    " + position.x + " + " + position.y );
-    	//System.out.println(distance.y/distance.x);
-    	
     	theta = (float) Math.atan(distance.y/distance.x);//theta is the angle of the vector between the mouse and the diver. from -pi/2 to pi/2
-    	
-    	//System.out.println(theta);
     	
     	if ( distance.x < 0 && distance.y > 0 ) { //all of this crap changes theta to be 0 to 2pi
     		temp = (float)pi / 2 + theta;
@@ -57,10 +51,6 @@ public class Diver {
     		temp = (float)pi / 2 + theta;
     		theta = 3 * (float)pi / 2 + temp; 
     	}
-    	
-    	System.out.println(theta);
-    	System.out.println(d);
-    	System.out.println("");
     	
     	v = Math.sqrt(Math.pow(velocity.x, 2) + Math.pow(velocity.y, 2)); //magnitude of velocity
     	
@@ -101,17 +91,27 @@ public class Diver {
         } if (position.y > 250){
             position.y = 250;
             velocity.y=0;
-        } if (position.x<-20) {
-        	position.x=-20;
+        } if (position.x<50) {
+        	position.x=50;
         	velocity.x=0;
-        } if (position.x>420) {
-        	position.x=420;
+        	return 1;
+        } if (position.x>370) {
+        	position.x=370;
         	velocity.x=0;
+        	return 2;
         }
         
-        //System.out.println(mousePos.x+" "+mousePos.y);
-        
+        return 0;
     }
+    
+    public void UpdateX (float delta) {
+    	
+    }
+    
+    public Vector2 getPosition() {
+    	return position;
+    }
+    
     public void Move(int mouseX, int mouseY) {
     	mousePos.x=mouseX / 2;
     	mousePos.y=mouseY / 2;

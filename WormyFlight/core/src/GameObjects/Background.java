@@ -1,11 +1,6 @@
 package GameObjects;
 
-import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.math.Vector2;
-import com.badlogic.gdx.graphics.Color;
-import com.badlogic.gdx.graphics.GL20;
-import com.badlogic.gdx.Screen;
-
 
 public class Background {
 
@@ -23,8 +18,12 @@ public class Background {
 		position = new Vector2(x,y);
 	}
 	
-	public void update (float delta){
-		
+	public void update (float delta, boolean direction){
+		System.out.println("here");
+		if (direction) {
+			position.x -= 2; 
+		} else
+			position.x +=2;
 	}
 	
 	public float getX(){
@@ -40,5 +39,8 @@ public class Background {
 
     public float getHeight() {
         return height;
+    }
+    public Vector2 getPosition() {
+    	return position;
     }
 }

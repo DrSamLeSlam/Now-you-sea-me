@@ -8,19 +8,25 @@ import GameObjects.Diver;
 
 public class GameWorld {
     private Diver diver;
-    private Background ground;
+    private Background background;
+    private int status = 0;
     public GameWorld(){
         diver = new Diver(100,100,20,20);
-        //background = new Background();
+        background = new Background(0,0,1000,408,0);
     }
     public void update(float delta) {
-        diver.update(delta);
-        //ground.update(delta);
+        status = diver.update(delta);
+        if (status == 1) {
+        	background.update(delta, false);
+        } if (status == 2) {
+        	background.update(delta, true);
+        }
+        
     }
     public Diver getDiver(){
         return diver;
     }
     public Background getBackgroundround(){
-    	return ground;
+    	return background;
     }
 }

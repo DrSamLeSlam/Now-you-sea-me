@@ -43,7 +43,7 @@ public class GameRenderer {
         
         spriteBatch.enableBlending();
         
-        spriteBatch.draw(AssetLoader.BGSprite, 0, 0, xwidth, yheight);
+        spriteBatch.draw(AssetLoader.BGSprite, myWorld.getBackgroundround().getPosition().x, myWorld.getBackgroundround().getPosition().y, xwidth, yheight);
         
         spriteBatch.draw(AssetLoader.DiverSprite, diver.getX(), diver.getY(), 60, 30);
 

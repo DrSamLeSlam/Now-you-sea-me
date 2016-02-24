@@ -22,7 +22,7 @@ public class AssetLoader {
     public static Texture Opaque9;
     public static Texture Opaque10;
     
-    public static Sprite sprite;
+    public static Texture BG;
     public static Sprite BGSprite;
 
     public static Sprite OpaqueSprite1;
@@ -41,32 +41,31 @@ public class AssetLoader {
         DiverSprite = new Sprite(Diver);
         DiverSprite.flip(false,true);
 
-        
-//        flashlight = new Texture(Gdx.files.internal("android/assets/data/Dark.png"));
-//        Dark = new Sprite(flashlight);
-//        Dark.flip(false,true);
+        BG = new Texture(Gdx.files.internal("android/assets/data/Background.png"));
+        BGSprite = new Sprite(BG);
+        BGSprite.flip(false, true);
         
         Opaque1 = new Texture(Gdx.files.internal("android/assets/data/Opaque.png"));
         OpaqueSprite1 = new Sprite(Opaque1);
-        OpaqueSprite1.flip(false, true);
-        Opaque2 = new Texture(Gdx.files.internal("android/assets/data/Opaque2.png"));
-        OpaqueSprite2 = new Sprite(Opaque2);
-        Opaque3 = new Texture(Gdx.files.internal("android/assets/data/Opaque3.png"));
-        OpaqueSprite3 = new Sprite(Opaque3);
-        Opaque4 = new Texture(Gdx.files.internal("android/assets/data/Opaque4.png"));
-        OpaqueSprite4 = new Sprite(Opaque4);
-        Opaque5 = new Texture(Gdx.files.internal("android/assets/data/Opaque5.png"));
-        OpaqueSprite5 = new Sprite(Opaque5);
-        Opaque6 = new Texture(Gdx.files.internal("android/assets/data/Opaque6.png"));
-        OpaqueSprite6 = new Sprite(Opaque6);
-        Opaque7 = new Texture(Gdx.files.internal("android/assets/data/Opaque7.png"));
-        OpaqueSprite7 = new Sprite(Opaque7);
-        Opaque8 = new Texture(Gdx.files.internal("android/assets/data/Opaque8.png"));
-        OpaqueSprite8 = new Sprite(Opaque8);
-        Opaque9 = new Texture(Gdx.files.internal("android/assets/data/Opaque9.png"));
-        OpaqueSprite9 = new Sprite(Opaque9);
-        Opaque10 = new Texture(Gdx.files.internal("android/assets/data/Opaque10.png"));
-        OpaqueSprite10 = new Sprite(Opaque10);
+//        OpaqueSprite1.flip(false, true);
+//        Opaque2 = new Texture(Gdx.files.internal("android/assets/data/Opaque2.png"));
+//        OpaqueSprite2 = new Sprite(Opaque2);
+//        Opaque3 = new Texture(Gdx.files.internal("android/assets/data/Opaque3.png"));
+//        OpaqueSprite3 = new Sprite(Opaque3);
+//        Opaque4 = new Texture(Gdx.files.internal("android/assets/data/Opaque4.png"));
+//        OpaqueSprite4 = new Sprite(Opaque4);
+//        Opaque5 = new Texture(Gdx.files.internal("android/assets/data/Opaque5.png"));
+//        OpaqueSprite5 = new Sprite(Opaque5);
+//        Opaque6 = new Texture(Gdx.files.internal("android/assets/data/Opaque6.png"));
+//        OpaqueSprite6 = new Sprite(Opaque6);
+//        Opaque7 = new Texture(Gdx.files.internal("android/assets/data/Opaque7.png"));
+//        OpaqueSprite7 = new Sprite(Opaque7);
+//        Opaque8 = new Texture(Gdx.files.internal("android/assets/data/Opaque8.png"));
+//        OpaqueSprite8 = new Sprite(Opaque8);
+//        Opaque9 = new Texture(Gdx.files.internal("android/assets/data/Opaque9.png"));
+//        OpaqueSprite9 = new Sprite(Opaque9);
+//        Opaque10 = new Texture(Gdx.files.internal("android/assets/data/Opaque10.png"));
+//        OpaqueSprite10 = new Sprite(Opaque10);
         
     }
 

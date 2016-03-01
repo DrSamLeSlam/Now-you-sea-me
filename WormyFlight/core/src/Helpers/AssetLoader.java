@@ -39,13 +39,8 @@ public class AssetLoader {
         
     }
     
-    public static void rotate(float theta) {
-    	DiverSprite.rotate(theta);
-    	System.out.println(theta);
-    }
-    
-    public void flip() {
-    	
+    public static void flip() {
+    	DiverSprite.flip(true, false);
     }
 
     public static void dispose(){

@@ -55,8 +55,6 @@ public class Diver {
     		theta = 3 * (float)pi / 2 + temp; 
     	}
     	
-    	AssetLoader.rotate(theta);
-    	
     	v = Math.sqrt(Math.pow(velocity.x, 2) + Math.pow(velocity.y, 2)); //magnitude of velocity
     	
     	if ( d > 10 ) {
@@ -65,7 +63,7 @@ public class Diver {
     	} if ( d <= 10 ) {
     		velocity.x = distance.x / 50;//stop the diver when he is close eneough to the mouse
     		velocity.y = distance.y / 50;
-    	} 
+    	}
     	
     	velocity.x+=acceleration.x; //update velocity. this will generally put the magnitude of the velocity over 2
     	velocity.y+=acceleration.y; //so we correct that below
@@ -86,6 +84,8 @@ public class Diver {
     		velocity.x = 2 * (float)Math.cos(thetaV); //adjusts the velocity to new values
     		velocity.y = 2 * (float)Math.sin(thetaV); //magnitude will always be equal to 2
     	}	
+    	
+    	
     	
         position.y+=velocity.y; //update position
         position.x+=velocity.x;

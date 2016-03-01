@@ -38,14 +38,21 @@ public class AssetLoader {
         AssetLoader.MineSprite.flip(false,true);
         
     }
+    
+    public static void rotate(float theta) {
+    	DiverSprite.rotate(theta);
+    	System.out.println(theta);
+    }
+    
+    public void flip() {
+    	
+    }
 
     public static void dispose(){
     	Diver.dispose();
     	BG.dispose();
         Opaque1.dispose();
         Mine.dispose();
-        
-        
         
     }
 }

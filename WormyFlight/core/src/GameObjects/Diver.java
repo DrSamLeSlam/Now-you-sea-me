@@ -2,6 +2,8 @@ package GameObjects;
 
 import com.badlogic.gdx.math.Vector2;
 
+import Helpers.AssetLoader;
+
 public class Diver {
     private Vector2 position;
     private Vector2 velocity;
@@ -33,6 +35,7 @@ public class Diver {
         mousePos = new Vector2(0,0);
         distance = new Vector2(0,0);
     }
+    
     public int update(float delta) {
     	
     	distance.x = mousePos.x - position.x - 47; //components of distance between mouse and diver
@@ -52,11 +55,13 @@ public class Diver {
     		theta = 3 * (float)pi / 2 + temp; 
     	}
     	
+    	AssetLoader.rotate(theta);
+    	
     	v = Math.sqrt(Math.pow(velocity.x, 2) + Math.pow(velocity.y, 2)); //magnitude of velocity
     	
     	if ( d > 10 ) {
-    		acceleration.x = 0.05f * (float)Math.cos(theta); //set acceleration towards the current mouse position
-    		acceleration.y = 0.05f * (float)Math.sin(theta);
+    		acceleration.x = 0.1f * (float)Math.cos(theta); //set acceleration towards the current mouse position
+    		acceleration.y = 0.1f * (float)Math.sin(theta);
     	} if ( d <= 10 ) {
     		velocity.x = distance.x / 50;//stop the diver when he is close eneough to the mouse
     		velocity.y = distance.y / 50;

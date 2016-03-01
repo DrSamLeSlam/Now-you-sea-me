@@ -44,7 +44,9 @@ public class GameRenderer {
         spriteBatch.enableBlending();
         
 
-        spriteBatch.draw(AssetLoader.BGSprite, myWorld.getBackgroundround().getPosition().x, myWorld.getBackgroundround().getPosition().y, xwidth, yheight);
+        spriteBatch.draw(AssetLoader.BGSprite, myWorld.getBackgroundround().getPosition().x%xwidth, myWorld.getBackgroundround().getPosition().y, xwidth, yheight);
+        spriteBatch.draw(AssetLoader.BGSprite, myWorld.getBackgroundround().getPosition().x%xwidth - 480, myWorld.getBackgroundround().getPosition().y, xwidth, yheight);
+        spriteBatch.draw(AssetLoader.BGSprite, myWorld.getBackgroundround().getPosition().x%xwidth + 480, myWorld.getBackgroundround().getPosition().y, xwidth, yheight);
         
         spriteBatch.draw(AssetLoader.MineSprite, 100, 145, 97, 130);
         

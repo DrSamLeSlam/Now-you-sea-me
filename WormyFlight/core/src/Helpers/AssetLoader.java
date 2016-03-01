@@ -14,6 +14,9 @@ public class AssetLoader {
     
     public static Texture BG;
     public static Sprite BGSprite;
+    
+    public static Texture Cave;
+    public static Sprite CaveSprite;
 
     public static Sprite OpaqueSprite1;
     
@@ -29,6 +32,10 @@ public class AssetLoader {
         BG = new Texture(Gdx.files.internal("android/assets/data/Background.png"));
         BGSprite = new Sprite(BG);
         BGSprite.flip(false, true);
+        
+        Cave = new Texture(Gdx.files.internal("android/assets/data/underwatercave.png"));
+        CaveSprite = new Sprite(Cave);
+        CaveSprite.flip(false, true);
         
         Opaque1 = new Texture(Gdx.files.internal("android/assets/data/OpaqueA.png"));
         OpaqueSprite1 = new Sprite(Opaque1);

@@ -47,10 +47,12 @@ public class GameRenderer {
         spriteBatch.draw(AssetLoader.BGSprite, myWorld.getBackgroundround().getPosition().x%xwidth, myWorld.getBackgroundround().getPosition().y, xwidth, yheight);
         spriteBatch.draw(AssetLoader.BGSprite, myWorld.getBackgroundround().getPosition().x%xwidth + 480, myWorld.getBackgroundround().getPosition().y, xwidth, yheight);
         
+        spriteBatch.draw(AssetLoader.CaveSprite, myWorld.getBackgroundround().getPosition().x%xwidth + 480, myWorld.getBackgroundround().getPosition().y, xwidth, yheight);
+        
         spriteBatch.draw(AssetLoader.MineSprite, 100, 145, 97, 130);
         
         spriteBatch.draw(AssetLoader.DiverSprite, diver.getX(), diver.getY(), 60, 30);
-
+       
         
         c = spriteBatch.getColor();
         spriteBatch.setColor(c.r, c.g, c.b, (diver.getY()/yheight));

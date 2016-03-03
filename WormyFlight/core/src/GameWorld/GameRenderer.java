@@ -44,10 +44,10 @@ public class GameRenderer {
         spriteBatch.enableBlending();
         
 
-        spriteBatch.draw(AssetLoader.BGSprite, myWorld.getBackgroundround().getPosition().x%xwidth, myWorld.getBackgroundround().getPosition().y, xwidth, yheight);
-        spriteBatch.draw(AssetLoader.BGSprite, myWorld.getBackgroundround().getPosition().x%xwidth + 480, myWorld.getBackgroundround().getPosition().y, xwidth, yheight);
+        spriteBatch.draw(AssetLoader.BGSprite, myWorld.getBackgroundround().getPosition().x, myWorld.getBackgroundround().getPosition().y, xwidth, yheight);
         
-        spriteBatch.draw(AssetLoader.CaveSprite, myWorld.getBackgroundround().getPosition().x%xwidth + 480, myWorld.getBackgroundround().getPosition().y, xwidth, yheight);
+        spriteBatch.draw(AssetLoader.CaveSprite, myWorld.getCave().getPosition().x, myWorld.getCave().getPosition().y, xwidth, yheight);
+        //System.out.println(myWorld.getCave().getPosition());
         
         spriteBatch.draw(AssetLoader.MineSprite, 100, 145, 97, 130);
         

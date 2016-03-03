@@ -5,6 +5,7 @@ import com.badlogic.gdx.math.Vector2;
 import Helpers.AssetLoader;
 
 public class Diver {
+	private Vector2 superPosition;
     private Vector2 position;
     private Vector2 velocity;
     private Vector2 acceleration;
@@ -29,6 +30,7 @@ public class Diver {
     public Diver(float x, float y, int width, int height){
         this.width = width;
         this.height = height;
+        superPosition = new Vector2(x,y);
         position = new Vector2(x,y);
         velocity = new Vector2(0,0);
         acceleration = new Vector2(0,0);
@@ -58,8 +60,8 @@ public class Diver {
     	v = Math.sqrt(Math.pow(velocity.x, 2) + Math.pow(velocity.y, 2)); //magnitude of velocity
     	
     	if ( d > 10 ) {
-    		acceleration.x = 0.1f * (float)Math.cos(theta); //set acceleration towards the current mouse position
-    		acceleration.y = 0.1f * (float)Math.sin(theta);
+    		acceleration.x = 0.13f * (float)Math.cos(theta); //set acceleration towards the current mouse position
+    		acceleration.y = 0.13f * (float)Math.sin(theta);
     	} if ( d <= 10 ) {
     		velocity.x = distance.x / 50;//stop the diver when he is close eneough to the mouse
     		velocity.y = distance.y / 50;
@@ -85,24 +87,32 @@ public class Diver {
     		velocity.y = 2 * (float)Math.sin(thetaV); //magnitude will always be equal to 2
     	}	
     	
+    	superPosition.x+=velocity.x;
+    	superPosition.y+=velocity.y;
     	
+    	System.out.println(superPosition);
     	
         position.y+=velocity.y; //update position
         position.x+=velocity.x;
         
+        
         if (position.y < 0){
             position.y = 0;
-            velocity.y=0;
+            //velocity.y=0;
         } if (position.y > 250){
             position.y = 250;
-            velocity.y=0;
+            //velocity.y=0;
         } if (position.x<50) {
         	position.x=50;
-        	velocity.x=0;
+        	if(superPosition.x<50) {
+        		superPosition.x = 50;
+        		return 0;
+        	}
+        	//velocity.x=0;
         	return 1;
         } if (position.x>370) {
         	position.x=370;
-        	velocity.x=0;
+        	//velocity.x=0;
         	return 2;
         }
         
@@ -122,38 +132,28 @@ public class Diver {
     	mousePos.y=mouseY / 2;
     }
     public void KeyUp(){
-        acceleration.y=-0.05f;
+    	
     }
     public void KeyDown(){
-    	acceleration.y=0.05f;
+
     }
     public void KeyLeft(){
-        acceleration.x=-0.05f;
-        if (turn == false){
-        	 //AssetLoader.sprite.flip(true, false);
-        	 //turn = true;
-        }
+
     }
     public void KeyRight(){
-        acceleration.x=0.05f;
-        if (turn == false){
-        	 //AssetLoader.sprite.flip(true, false);
-        	 //turn = true;
-        }       
+
     }
     public void EndKeyUp(){
-        acceleration.y=0;
+
     }
     public void EndKeyDown(){
-    	acceleration.y=0;
+
     }
     public void EndKeyLeft(){
-    	acceleration.x=0;
-    	turn = false;
+
     }
     public void EndKeyRight(){
-    	acceleration.x=0;
-    	turn = false;
+
     }
     public float getX(){
         return position.x;

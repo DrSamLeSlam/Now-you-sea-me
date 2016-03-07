@@ -18,11 +18,8 @@ public class Background {
 		position = new Vector2(x,y);
 	}
 	
-	public void update (float delta, boolean direction, Vector2 velocity){
-		if (direction) {
-			position.x -= velocity.x; 
-		} else
-			position.x -= velocity.x;
+	public void update (float delta, Vector2 velocity){
+		position.x -= velocity.x;
 	}
 	
 	public float getX(){

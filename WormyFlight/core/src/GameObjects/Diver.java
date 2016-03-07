@@ -113,7 +113,7 @@ public class Diver {
         } if (position.x>370) {
         	position.x=370;
         	//velocity.x=0;
-        	return 2;
+        	return 1;
         }
         
         return 0;

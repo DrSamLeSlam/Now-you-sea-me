@@ -46,10 +46,13 @@ public class GameRenderer {
 
         spriteBatch.draw(AssetLoader.BGSprite, myWorld.getBackgroundround().getPosition().x, myWorld.getBackgroundround().getPosition().y, xwidth, yheight);
         
+        spriteBatch.draw(AssetLoader.BGSprite, myWorld.getShip().getPosition().x, myWorld.getShip().getPosition().y, xwidth, yheight);
+        
+        spriteBatch.draw(AssetLoader.CaveBGSprite, myWorld.getCave().getPosition().x, myWorld.getCave().getPosition().y, xwidth, yheight);
         spriteBatch.draw(AssetLoader.CaveSprite, myWorld.getCave().getPosition().x, myWorld.getCave().getPosition().y, xwidth, yheight);
         //System.out.println(myWorld.getCave().getPosition());
         
-        spriteBatch.draw(AssetLoader.MineSprite, 100, 145, 97, 130);
+        //spriteBatch.draw(AssetLoader.MineSprite, 100, 145, 97, 130);
         
         spriteBatch.draw(AssetLoader.DiverSprite, diver.getX(), diver.getY(), 60, 30);
        

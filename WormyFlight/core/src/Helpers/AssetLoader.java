@@ -46,7 +46,7 @@ public class AssetLoader {
         OpaqueSprite1 = new Sprite(Opaque1);
         Gradiant = new Texture(Gdx.files.internal("android/assets/data/gradiant.png"));
         gradiantSprite = new Sprite(Gradiant);
-        gradiantSprite.flip(true, false);
+        gradiantSprite.flip(false, false);
         
         Mine = new Texture(Gdx.files.internal("android/assets/data/mine.png"));
         MineSprite = new Sprite(Mine);

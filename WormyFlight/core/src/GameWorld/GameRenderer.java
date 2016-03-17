@@ -54,8 +54,13 @@ public class GameRenderer {
         //System.out.println(myWorld.getCave().getPosition());
         
         //spriteBatch.draw(AssetLoader.MineSprite, 100, 145, 97, 130);
+        c = spriteBatch.getColor();
+        spriteBatch.setColor(c.r, c.g, c.b, diver.getOpacity());
         
         spriteBatch.draw(AssetLoader.DiverSprite, diver.getX(), diver.getY(), 60, 30);
+        
+        c = spriteBatch.getColor();
+        spriteBatch.setColor(c.r, c.g, c.b, 1f);
         
         spriteBatch.draw(AssetLoader.ShipSprite, myWorld.getShip().getPosition().x, myWorld.getShip().getPosition().y, xwidth, yheight);
         

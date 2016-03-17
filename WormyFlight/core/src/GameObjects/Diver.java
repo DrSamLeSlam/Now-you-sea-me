@@ -25,11 +25,14 @@ public class Diver {
     private int width;
     private int height;
     
+    private float opacity;
+    
     private boolean hidden = false;
 
     public Diver(float x, float y, int width, int height){
         this.width = width;
         this.height = height;
+        this.opacity = 1;
         superPosition = new Vector2(x,y);
         position = new Vector2(x,y);
         velocity = new Vector2(0,0);
@@ -121,7 +124,11 @@ public class Diver {
         return 0;
     }
     
-    public void UpdateX (float delta) {
+    public float getOpacity() {
+    	return opacity;
+    }
+    
+    public void UpdateHidden (float delta, Vector2 Velocity) {
     	
     }
     
@@ -135,6 +142,9 @@ public class Diver {
     }
     public void setHidden(boolean set) {
     	hidden = set;
+    }
+    public boolean getHidden() {
+    	return hidden;
     }
     public float getX(){
         return position.x;

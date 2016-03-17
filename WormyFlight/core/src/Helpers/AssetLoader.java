@@ -13,7 +13,7 @@ public class AssetLoader {
     public static Texture BG;
     public static Sprite BGSprite;
 
-    public static Sprite CaveBGSprite;
+    public static Sprite BGSpriteFlipped;
     
     public static Texture Cave;
     public static Sprite CaveSprite;
@@ -27,7 +27,10 @@ public class AssetLoader {
     public static Texture Mine;
     public static Sprite MineSprite;
     
-    public static void load(){
+    public static Texture Ship;
+    public static Sprite ShipSprite;
+    
+    public static void load() {
         Diver = new Texture(Gdx.files.internal("android/assets/data/Diver.png"));
         DiverSprite = new Sprite(Diver);
         DiverSprite.flip(false,true);
@@ -35,8 +38,8 @@ public class AssetLoader {
         BG = new Texture(Gdx.files.internal("android/assets/data/fuckthis.png"));
         BGSprite = new Sprite(BG);
         BGSprite.flip(false, true);
-        CaveBGSprite = new Sprite(BG);
-        CaveBGSprite.flip(true, true);
+        BGSpriteFlipped = new Sprite(BG);
+        BGSpriteFlipped.flip(true, true);
         
         Cave = new Texture(Gdx.files.internal("android/assets/data/underwatercave.png"));
         CaveSprite = new Sprite(Cave);
@@ -51,6 +54,10 @@ public class AssetLoader {
         Mine = new Texture(Gdx.files.internal("android/assets/data/mine.png"));
         MineSprite = new Sprite(Mine);
         MineSprite.flip(false,true);
+        
+        Ship = new Texture(Gdx.files.internal("android/assets/data/sunkenship.png"));
+        ShipSprite = new Sprite(Ship);
+        ShipSprite.flip(false,true);
         
     }
     

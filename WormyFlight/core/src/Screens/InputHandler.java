@@ -12,39 +12,16 @@ public class InputHandler implements InputProcessor {
     }
     @Override
     public boolean touchDown(int screenX, int screenY, int pointer, int button) {
+    	
     	return true;
     }
     @Override
     public boolean keyDown(int keycode) {
-        if (keycode == Input.Keys.DPAD_UP){
-            //myWorm.KeyUp();
-        }
-        if (keycode == Input.Keys.DPAD_DOWN){
-            //myWorm.KeyDown();
-        }
-        if (keycode == Input.Keys.DPAD_LEFT){
-            //myWorm.KeyLeft();
-        }
-        if (keycode == Input.Keys.DPAD_RIGHT){
-            //myWorm.KeyRight();
-        }
         return false;
     }
 
     @Override
     public boolean keyUp(int keycode) {
-    	if (keycode == Input.Keys.DPAD_UP){
-            //myWorm.EndKeyUp();
-        }
-        if (keycode == Input.Keys.DPAD_DOWN){
-            //myWorm.EndKeyDown();
-        }
-        if (keycode == Input.Keys.DPAD_LEFT){
-            //myWorm.EndKeyLeft();
-        }
-        if (keycode == Input.Keys.DPAD_RIGHT){
-            //myWorm.EndKeyRight();
-        }
         return false;
     }
 

@@ -22,10 +22,10 @@ public class Diver {
     private float temp;
     private double pi = 3.14159265359;
 
-    public int width;
-    public int height;
+    private int width;
+    private int height;
     
-    public boolean turn = false;
+    private boolean hidden = false;
 
     public Diver(float x, float y, int width, int height){
         this.width = width;
@@ -133,29 +133,8 @@ public class Diver {
     	mousePos.x=mouseX / 2;
     	mousePos.y=mouseY / 2;
     }
-    public void KeyUp(){
-    	
-    }
-    public void KeyDown(){
-
-    }
-    public void KeyLeft(){
-
-    }
-    public void KeyRight(){
-
-    }
-    public void EndKeyUp(){
-
-    }
-    public void EndKeyDown(){
-
-    }
-    public void EndKeyLeft(){
-
-    }
-    public void EndKeyRight(){
-
+    public void setHidden(boolean set) {
+    	hidden = set;
     }
     public float getX(){
         return position.x;

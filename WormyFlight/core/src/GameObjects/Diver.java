@@ -104,15 +104,17 @@ public class Diver {
             //velocity.y=0;
         } if (position.x<50) {
         	position.x=50;
-        	if(superPosition.x<50) {
+        	if(superPosition.x<50){
         		superPosition.x = 50;
         		return 0;
         	}
-        	//velocity.x=0;
         	return 1;
-        } if (position.x>370) {
+        } if (position.x>370){
         	position.x=370;
-        	//velocity.x=0;
+        	if(superPosition.x>1330){
+        		superPosition.x=1330;
+        		return 0;
+        	}
         	return 1;
         }
         

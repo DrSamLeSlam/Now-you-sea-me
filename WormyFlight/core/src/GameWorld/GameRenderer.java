@@ -60,6 +60,8 @@ public class GameRenderer {
         c = spriteBatch.getColor();
         spriteBatch.setColor(c.r, c.g, c.b, (diver.getY()/yheight));
         spriteBatch.draw(AssetLoader.Opaque1, diver.getX() - 1440, diver.getY() - 790, 3000, 1600);
+        spriteBatch.setColor(c.r, c.g, c.b, 1f);
+        spriteBatch.draw(AssetLoader.gradiantSprite, 0, diver.getY()-200, 960, 540);
         
         spriteBatch.end();
         

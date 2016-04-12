@@ -47,6 +47,12 @@ public class GameWorld {
     		cave.setPosition(new Vector2(480,0));
     		ship.setPosition(new Vector2(960,0));
     		System.out.println("Here2");
+    	} else {
+    		if (Math.abs(hiddenDiver.getX()-diver.getX()) < 10 && Math.abs(hiddenDiver.getY()-diver.getY()) < 10 ) {
+    			System.out.println("You Win!!!!");
+    		} else {
+    			System.out.println("Try Again!");
+    		}
     	}
     }
     public Diver getDiver() {

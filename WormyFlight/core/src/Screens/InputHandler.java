@@ -15,7 +15,6 @@ public class InputHandler implements InputProcessor {
     }
     @Override
     public boolean touchDown(int screenX, int screenY, int pointer, int button) {
-    	System.out.println("here");
     	myWorld.hide();
     	return true;
     }

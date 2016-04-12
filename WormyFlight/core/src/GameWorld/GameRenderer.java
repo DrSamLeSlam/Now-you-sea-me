@@ -42,14 +42,16 @@ public class GameRenderer {
         spriteBatch.setColor(c.r, c.g, c.b, 1f);
         
         spriteBatch.enableBlending();
-        
 
         spriteBatch.draw(AssetLoader.BGSprite, myWorld.getBackgroundround().getPosition().x, myWorld.getBackgroundround().getPosition().y, xwidth, yheight);
-        
         spriteBatch.draw(AssetLoader.BGSpriteFlipped, myWorld.getCave().getPosition().x, myWorld.getCave().getPosition().y, xwidth, yheight);
         spriteBatch.draw(AssetLoader.CaveSprite, myWorld.getCave().getPosition().x, myWorld.getCave().getPosition().y, xwidth, yheight);
-        
         spriteBatch.draw(AssetLoader.BGSprite, myWorld.getShip().getPosition().x, myWorld.getShip().getPosition().y, xwidth, yheight);
+        
+        if (myWorld.hidden()) {
+        	spriteBatch.setColor(c.r, c.g, c.b, myWorld.getHiddenDiver().getOpacity());
+        	spriteBatch.draw(AssetLoader.DiverSprite, myWorld.getHiddenDiver().getX(), myWorld.getHiddenDiver().getY(), 60, 30 );
+        }
         
         //System.out.println(myWorld.getCave().getPosition());
         

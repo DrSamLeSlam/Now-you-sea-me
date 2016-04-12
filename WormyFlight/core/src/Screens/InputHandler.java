@@ -4,15 +4,19 @@ import com.badlogic.gdx.Input;
 import com.badlogic.gdx.InputProcessor;
 import com.badlogic.gdx.math.Vector2;
 import GameObjects.Diver;
+import GameWorld.GameWorld;
 
 public class InputHandler implements InputProcessor {
     private Diver myDiver;
-    public InputHandler(Diver worm){
+    private GameWorld myWorld;
+    public InputHandler(Diver worm, GameWorld world){
         myDiver = worm;
+        myWorld = world;
     }
     @Override
     public boolean touchDown(int screenX, int screenY, int pointer, int button) {
-    	
+    	System.out.println("here");
+    	myWorld.hide();
     	return true;
     }
     @Override

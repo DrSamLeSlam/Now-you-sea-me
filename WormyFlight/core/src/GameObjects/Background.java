@@ -21,7 +21,9 @@ public class Background {
 	public void update (float delta, Vector2 velocity){
 		position.x -= velocity.x;
 	}
-	
+	public void setPosition(Vector2 pos) {
+		position = pos;
+	}
 	public float getX(){
         return position.x;
     }

@@ -93,7 +93,7 @@ public class Diver {
     	superPosition.x+=velocity.x;
     	superPosition.y+=velocity.y;
     	
-    	System.out.println(superPosition);
+    	//System.out.println(superPosition);
     	
         position.y+=velocity.y; //update position
         position.x+=velocity.x;
@@ -135,16 +135,21 @@ public class Diver {
     public Vector2 getPosition() {
     	return position;
     }
-    
+    public void setPosition(Vector2 pos) {
+    	position = pos;
+    }
+    public Vector2 getSuper() {
+    	return superPosition;
+    }
+    public void setSuper(Vector2 superPos) {
+    	superPosition = superPos;
+    }
     public void Move(int mouseX, int mouseY) {
     	mousePos.x=mouseX / 2;
     	mousePos.y=mouseY / 2;
     }
-    public void setHidden(boolean set) {
-    	hidden = set;
-    }
-    public boolean getHidden() {
-    	return hidden;
+    public void setOpacity(float O) {
+    	opacity = O;
     }
     public float getX(){
         return position.x;

@@ -19,7 +19,7 @@ public class Background {
 	}
 	
 	public void update (float delta, Vector2 velocity){
-		position.x -= velocity.x;
+		position.x -= velocity.x*layer;
 	}
 	public void setPosition(Vector2 pos) {
 		position = pos;

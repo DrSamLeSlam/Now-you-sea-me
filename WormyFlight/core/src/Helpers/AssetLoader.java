@@ -2,6 +2,7 @@ package Helpers;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 
 
@@ -30,12 +31,14 @@ public class AssetLoader {
     public static Texture Ship;
     public static Sprite ShipSprite;
     
+    public static BitmapFont font;
+    
     public static void load() {
         Diver = new Texture(Gdx.files.internal("android/assets/data/Diver.png"));
         DiverSprite = new Sprite(Diver);
         DiverSprite.flip(false,true);
 
-        BG = new Texture(Gdx.files.internal("android/assets/data/fuckthis.png"));
+        BG = new Texture(Gdx.files.internal("android/assets/data/background.png"));
         BGSprite = new Sprite(BG);
         BGSprite.flip(false, true);
         BGSpriteFlipped = new Sprite(BG);
@@ -45,7 +48,7 @@ public class AssetLoader {
         CaveSprite = new Sprite(Cave);
         CaveSprite.flip(false, true);
         
-        Opaque1 = new Texture(Gdx.files.internal("android/assets/data/OpaqueA.png"));
+        Opaque1 = new Texture(Gdx.files.internal("android/assets/data/Opaque.png"));
         OpaqueSprite1 = new Sprite(Opaque1);
         Gradiant = new Texture(Gdx.files.internal("android/assets/data/gradiant.png"));
         gradiantSprite = new Sprite(Gradiant);
@@ -58,6 +61,8 @@ public class AssetLoader {
         Ship = new Texture(Gdx.files.internal("android/assets/data/sunkenship.png"));
         ShipSprite = new Sprite(Ship);
         ShipSprite.flip(false,true);
+        
+        font = new BitmapFont(Gdx.files.internal("android/assets/data/font.fnt"));
         
     }
     

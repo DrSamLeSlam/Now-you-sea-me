@@ -11,14 +11,16 @@ public class Fish {
 	
 	public int type;
 	
-	public Fish(Boolean side, float y, int width, int height, int type) {
+	public Fish(Boolean side, float y, float x, int width, int height, float layer) {
 		
 	}
 	
-	public void update(float delta) {
+	public void update(float delta, Vector2 velocity) {
 		
 	}
-	
+	public void setPosition(Vector2 pos) {
+		position = pos;
+	}
 	public Vector2 getPosition() {
 		return position;
 	}

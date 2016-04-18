@@ -1,11 +1,12 @@
 package GameWorld;
 
-import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.math.Rectangle;
-import com.badlogic.gdx.math.Vector2;
+import java.util.ArrayList;
+import java.util.Random;
 
+import com.badlogic.gdx.math.Vector2;
 import GameObjects.Background;
 import GameObjects.Diver;
+import GameObjects.Fish;
 
 public class GameWorld {
     private Diver diver;
@@ -16,6 +17,7 @@ public class GameWorld {
     private Background cave;
     private Background ship;
     private Background space;
+    private ArrayList<Fish> fishes = new ArrayList<Fish>();
     private boolean hidden;
 
     private int status = 0;
@@ -26,6 +28,10 @@ public class GameWorld {
         shipBackground = new Background(960,0,1000,480,1);
         cave = new Background(480,0,1000,480,1.2f);
         ship = new Background(960,0,1000,480,1.2f);
+        Random rand = new Random();
+        for( int i = 0; i < 50; i ++) {
+        	fishes.add(new Fish(rand.nextInt(960), rand.nextInt(400)+40, rand.nextInt(11), rand.nextInt(5)+1));
+        }
         hidden = false;
     }
     public void update(float delta) {

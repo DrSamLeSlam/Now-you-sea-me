@@ -31,6 +31,29 @@ public class AssetLoader {
     public static Texture Ship;
     public static Sprite ShipSprite;
     
+    public static Texture fish1;
+    public static Sprite fish1Sprite;
+    public static Texture fish2;
+    public static Sprite fish2Sprite;
+    public static Texture fish3;
+    public static Sprite fish3Sprite;
+    public static Texture fish4;
+    public static Sprite fish4Sprite;
+    public static Texture fish5;
+    public static Sprite fish5Sprite;
+    public static Texture fish6;
+    public static Sprite fish6Sprite;
+    public static Texture fish7;
+    public static Sprite fish7Sprite;
+    public static Texture fish8;
+    public static Sprite fish8Sprite;
+    public static Texture fish9;
+    public static Sprite fish9Sprite;
+    public static Texture fish10;
+    public static Sprite fish10Sprite;
+    public static Texture fish11;
+    public static Sprite fish11Sprite;
+    
     public static BitmapFont font;
     
     public static void load() {
@@ -61,6 +84,50 @@ public class AssetLoader {
         Ship = new Texture(Gdx.files.internal("android/assets/data/sunkenship.png"));
         ShipSprite = new Sprite(Ship);
         ShipSprite.flip(false,true);
+        
+        fish1 = new Texture(Gdx.files.internal("android/assets/data/fish1.png"));
+        fish1Sprite = new Sprite(fish1);
+        fish1Sprite.flip(false, true);
+        
+        fish2 = new Texture(Gdx.files.internal("android/assets/data/fish2.png"));
+        fish2Sprite = new Sprite(fish2);
+        fish2Sprite.flip(false, true);
+        
+        fish3 = new Texture(Gdx.files.internal("android/assets/data/fish3.png"));
+        fish3Sprite = new Sprite(fish3);
+        fish3Sprite.flip(false, true);
+        
+        fish4 = new Texture(Gdx.files.internal("android/assets/data/fish4.png"));
+        fish4Sprite = new Sprite(fish4);
+        fish4Sprite.flip(false, true);
+        
+        fish5 = new Texture(Gdx.files.internal("android/assets/data/fish5.png"));
+        fish5Sprite = new Sprite(fish5);
+        fish5Sprite.flip(false, true);
+        
+        fish6 = new Texture(Gdx.files.internal("android/assets/data/fish6.png"));
+        fish6Sprite = new Sprite(fish6);
+        fish6Sprite.flip(false, true);
+        
+        fish7 = new Texture(Gdx.files.internal("android/assets/data/fish7.png"));
+        fish7Sprite = new Sprite(fish7);
+        fish7Sprite.flip(false, true);
+        
+        fish8 = new Texture(Gdx.files.internal("android/assets/data/fish8.png"));
+        fish8Sprite = new Sprite(fish8);
+        fish8Sprite.flip(false, true);
+        
+        fish9 = new Texture(Gdx.files.internal("android/assets/data/fish9.png"));
+        fish9Sprite = new Sprite(fish9);
+        fish9Sprite.flip(false, true);
+        
+        fish10 = new Texture(Gdx.files.internal("android/assets/data/fish10.png"));
+        fish10Sprite = new Sprite(fish10);
+        fish10Sprite.flip(false, true);
+        
+        fish11 = new Texture(Gdx.files.internal("android/assets/data/fish11.png"));
+        fish11Sprite = new Sprite(fish11);
+        fish11Sprite.flip(false, true);
         
         font = new BitmapFont(Gdx.files.internal("android/assets/data/font.fnt"));
         

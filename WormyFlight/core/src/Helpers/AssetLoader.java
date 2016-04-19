@@ -1,5 +1,7 @@
 package Helpers;
 
+import java.util.ArrayList;
+
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
@@ -30,6 +32,10 @@ public class AssetLoader {
     
     public static Texture Ship;
     public static Sprite ShipSprite;
+    
+    public static ArrayList<Sprite> fishSprites = new ArrayList<Sprite>();
+    public static ArrayList<Sprite> fishSpritesFlipped = new ArrayList<Sprite>();
+    private static Sprite temp;
     
     public static Texture fish1;
     public static Sprite fish1Sprite;
@@ -129,6 +135,26 @@ public class AssetLoader {
         fish11Sprite = new Sprite(fish11);
         fish11Sprite.flip(false, true);
         
+        fishSprites.add(fish1Sprite);
+        fishSprites.add(fish2Sprite);
+        fishSprites.add(fish3Sprite);
+        fishSprites.add(fish4Sprite);
+        fishSprites.add(fish5Sprite);
+        fishSprites.add(fish6Sprite);
+        fishSprites.add(fish7Sprite);
+        fishSprites.add(fish8Sprite);
+        fishSprites.add(fish9Sprite);
+        fishSprites.add(fish10Sprite);
+        fishSprites.add(fish11Sprite);
+        
+        for( int i = 0; i < 11; i ++ ) {
+        	fishSprites.get(i).setSize(fishSprites.get(i).getWidth()/5, fishSprites.get(i).getHeight()/5);
+        } for( int i = 0; i < 11; i ++ ) {
+        	temp = new Sprite( fishSprites.get(i));
+        	temp.flip(true, false);
+        	fishSpritesFlipped.add(temp);
+        }
+     
         font = new BitmapFont(Gdx.files.internal("android/assets/data/font.fnt"));
         
     }

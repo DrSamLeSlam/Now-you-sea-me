@@ -1,6 +1,10 @@
 package GameObjects;
 
+import java.util.Random;
+
+import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.math.Vector2;
+import Helpers.AssetLoader;
 
 public class Fish {
 	
@@ -8,30 +12,56 @@ public class Fish {
 	private Vector2 velocity;
 	private Vector2 superPosition;
 	
-	public int width;
-	public int height;
+	private Sprite sprite;
 	
-	boolean direction;
+	private Vector2 size;
 	
-	public int layer;
-	public int type;
+	int direction;
 	
-	public int size;
+	private float layer;
+	
 	
 	public Fish(float x, float y, int type, float layer) {
 		position = new Vector2(x,y);
 		superPosition = new Vector2(x,y);
-		this.type = type;
-		if(x%2 == 0) {
-			direction = true;
-		} else {
-			direction = false;
-		}
+		velocity = new Vector2(0.5f,0);
 		
+		this.layer = layer;
+		if( x % 2 == 1 ) {
+			velocity.x *= -1;
+			sprite = AssetLoader.fishSprites.get(type);
+		} else
+			sprite = AssetLoader.fishSpritesFlipped.get(type);
+		
+		size = new Vector2(sprite.getWidth(),sprite.getHeight());
+		size.x *= layer;
+		size.y *= layer;
+		System.out.println(layer);
+	
+	}
+	public void update(float delta) {
+		position.x += velocity.x*layer;
+		superPosition.x += velocity.x*layer;
+		Random rand = new Random();
+		if ( superPosition.x < -200 && velocity.x < 0 ) {
+			position.x = 1440;
+			superPosition.x = 1440;
+			position.y = rand.nextInt(400)+40;
+			superPosition.y = position.y;
+			
+			System.out.println("here");
+		} if ( superPosition.x > 1700 && velocity.x > 0) {
+			position.x = -200;
+			superPosition.x = -200;
+			System.out.println("here1");
+		}
+	}
+	public void update(float delta, Vector2 diverVelocity) {
+		position.x -= diverVelocity.x*layer;
 	}
 	
-	public void update(float delta, Vector2 velocity) {
-		
+	public float getLayer() {
+		return layer;
 	}
 	public void setPosition(Vector2 pos) {
 		position = pos;
@@ -40,16 +70,12 @@ public class Fish {
 		return position;
 	}
 	
-	public int getWidth() {
-		return width;
+	public Vector2 getSize() {
+		return size;
 	}
 	
-	public int getHeight() {
-		return height;
-	}
-	
-	public int getType() {
-		return type;
+	public Sprite getSprite() {
+		return sprite;
 	}
 
 }

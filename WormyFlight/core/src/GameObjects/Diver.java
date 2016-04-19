@@ -93,8 +93,6 @@ public class Diver {
     	superPosition.x+=velocity.x;
     	superPosition.y+=velocity.y;
     	
-    	//System.out.println(superPosition);
-    	
         position.y+=velocity.y; //update position
         position.x+=velocity.x;
         

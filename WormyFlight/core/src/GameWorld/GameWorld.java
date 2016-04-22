@@ -3,10 +3,12 @@ package GameWorld;
 import java.util.ArrayList;
 import java.util.Random;
 
+import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.math.Vector2;
 import GameObjects.Background;
 import GameObjects.Diver;
 import GameObjects.Fish;
+import Helpers.AssetLoader;
 
 public class GameWorld {
     private Diver diver;
@@ -19,6 +21,8 @@ public class GameWorld {
     private Background space;
     private ArrayList<Fish> fishes = new ArrayList<Fish>();
     private boolean hidden;
+    
+    BitmapFont timer;
 
     private int status = 0;
     public GameWorld() {
@@ -35,6 +39,8 @@ public class GameWorld {
         	fishes.add(new Fish(rand.nextInt(1440), rand.nextInt(400)+40, rand.nextInt(11), 0.1f * rand.nextInt(5) + 0.5f ));
         }
         hidden = false;
+        
+        
     }
     public void update(float delta) {
         status = diver.update(delta);

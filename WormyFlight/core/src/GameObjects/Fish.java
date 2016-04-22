@@ -48,12 +48,9 @@ public class Fish {
 			superPosition.x = 1440;
 			position.y = rand.nextInt(400)+40;
 			superPosition.y = position.y;
-			
-			System.out.println("here");
 		} if ( superPosition.x > 1700 && velocity.x > 0) {
 			position.x = -200;
 			superPosition.x = -200;
-			System.out.println("here1");
 		}
 	}
 	public void update(float delta, Vector2 diverVelocity) {

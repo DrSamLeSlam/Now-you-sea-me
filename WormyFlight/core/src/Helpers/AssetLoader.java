@@ -148,14 +148,14 @@ public class AssetLoader {
         fishSprites.add(fish11Sprite);
         
         for( int i = 0; i < 11; i ++ ) {
-        	fishSprites.get(i).setSize(fishSprites.get(i).getWidth()/5, fishSprites.get(i).getHeight()/5);
+        	fishSprites.get(i).setSize(fishSprites.get(i).getWidth()/20, fishSprites.get(i).getHeight()/20);
         } for( int i = 0; i < 11; i ++ ) {
         	temp = new Sprite( fishSprites.get(i));
         	temp.flip(true, false);
         	fishSpritesFlipped.add(temp);
         }
      
-        font = new BitmapFont(Gdx.files.internal("android/assets/data/font.fnt"));
+        font = new BitmapFont(Gdx.files.internal("android/assets/data/font.fnt"), true);
         
     }
     

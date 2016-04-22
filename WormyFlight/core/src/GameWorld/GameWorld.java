@@ -21,12 +21,15 @@ public class GameWorld {
     private Background space;
     private ArrayList<Fish> fishes = new ArrayList<Fish>();
     private boolean hidden;
+    int gameState;
+    
+    double clock;
     
     BitmapFont timer;
 
     private int status = 0;
     public GameWorld() {
-        diver = new Diver(100,100,20,20);
+        diver = new Diver(100,50,20,20);
         background = new Background(0,0,1000,408,0.5f);
         caveBackground = new Background(480,0,1000,480,0.5f);
         shipBackground = new Background(960,0,1000,480,0.5f);
@@ -39,16 +42,24 @@ public class GameWorld {
         	fishes.add(new Fish(rand.nextInt(1440), rand.nextInt(400)+40, rand.nextInt(11), 0.1f * rand.nextInt(5) + 0.5f ));
         }
         hidden = false;
+        gameState = 0;
         
-        
+        clock = 30;
     }
     public void update(float delta) {
-        status = diver.update(delta);
+        
         for( int i = 0; i < fishes.size(); i ++ ) {
         	fishes.get(i).update(delta);
         }
-
-        if (status == 1) {
+        System.out.println(gameState);
+        if( gameState == 1 || gameState == 3 )
+        	status = diver.update(delta);
+        
+        if( gameState == 1 ) {
+        	clock = clock - delta;
+        }
+        
+        if (status == 1 && gameState == 1 || gameState == 3) {
         	background.update(delta, diver.getVelocity());
         	caveBackground.update(delta, diver.getVelocity());
         	shipBackground.update(delta, diver.getVelocity());
@@ -63,10 +74,16 @@ public class GameWorld {
         } 
     }
     public void hide() {
-    	if ( !hidden ) {
+    	if( gameState == 0 ) 
+    		gameState = 1;
+    	else if ( gameState == 2)
+    		gameState = 3;
+    	else if ( !hidden ) {
     		hiddenDiver = new Diver(diver.getSuper().x, diver.getSuper().y, 20, 20);
     		hiddenDiver.setOpacity(0.2f);
     		hidden = true;
+    		gameState = 2;
+    		clock = 60;
     		diver.setPosition(new Vector2(100,100));
     		diver.setSuper(new Vector2(100,100));
     		background.setPosition(new Vector2(0,0));
@@ -82,6 +99,12 @@ public class GameWorld {
     			System.out.println("Try Again!");
     		}
     	}
+    }
+    public int getState() {
+    	return gameState;
+    }
+    public int getClock() {
+    	return (int)clock;
     }
     public Diver getDiver() {
         return diver;

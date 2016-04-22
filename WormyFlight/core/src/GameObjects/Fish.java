@@ -36,7 +36,6 @@ public class Fish {
 		size = new Vector2(sprite.getWidth(),sprite.getHeight());
 		size.x *= layer;
 		size.y *= layer;
-		System.out.println(layer);
 	
 	}
 	public void update(float delta) {

@@ -126,7 +126,13 @@ public class GameRenderer {
         	}
         }
         
-        AssetLoader.font.draw(spriteBatch, "memes", 5, -4, 0, 10, false);
+        AssetLoader.font.draw(spriteBatch, Integer.toString(myWorld.getClock()), 5, 7, 0, 10, false);
+        
+        if(myWorld.getState() == 0)
+        	AssetLoader.font.draw(spriteBatch, "Click to hide!", 70, 100, 0, 10, false);
+        
+        if(myWorld.getState() == 2)
+        	AssetLoader.font.draw(spriteBatch, "Click to seek!", 70, 100, 0, 10, false);
         
         c = spriteBatch.getColor();
         spriteBatch.setColor(c.r, c.g, c.b, (diver.getY()/yheight));

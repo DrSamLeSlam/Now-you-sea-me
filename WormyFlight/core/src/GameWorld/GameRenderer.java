@@ -7,6 +7,7 @@ import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer.ShapeType;
+import com.badlogic.gdx.math.Vector3;
 
 import GameObjects.Background;
 import GameObjects.Diver;
@@ -19,6 +20,7 @@ public class GameRenderer {
     private SpriteBatch spriteBatch;
     private float xwidth = 480;
     private float yheight = 270;
+    public static Vector3 mousePosition;
 
     public GameRenderer(GameWorld world) {
         myWorld = world;
@@ -29,8 +31,18 @@ public class GameRenderer {
 
         shapeRenderer = new ShapeRenderer();
         shapeRenderer.setProjectionMatrix(cam.combined);
+        
+        mousePosition = new Vector3(0,0,0);
+    }
+    public OrthographicCamera getCam() {
+    	return cam;
     }
     public void render() {
+    	mousePosition.x = Gdx.input.getX();
+    	mousePosition.y = Gdx.input.getY();
+    	
+    	cam.unproject(mousePosition);
+    	
         Diver diver = myWorld.getDiver();
 
         Gdx.gl.glClearColor(51 / 255.0f, 102 / 255.0f, 255 / 255.0f, 1);
@@ -133,6 +145,18 @@ public class GameRenderer {
         
         if(myWorld.getState() == 2)
         	AssetLoader.font.draw(spriteBatch, "Click to seek!", 70, 100, 0, 10, false);
+        
+        if(myWorld.youWin())
+        	AssetLoader.font.draw(spriteBatch, "YOU WIN!", 150, 100, 0, 10, false);
+        	
+        if(myWorld.close())
+        	AssetLoader.font.draw(spriteBatch, "Close!", 250, 7, 0, 10, false);
+        	
+        if(myWorld.tryAgain())
+        	AssetLoader.font.draw(spriteBatch, "Try Again!", 200, 7, 0, 10, false);
+
+        if(myWorld.tooSlow())
+        	AssetLoader.font.draw(spriteBatch, "TOO SLOW!", 150, 100, 0, 10, false);
         
         c = spriteBatch.getColor();
         spriteBatch.setColor(c.r, c.g, c.b, (diver.getY()/yheight));

@@ -3,8 +3,11 @@ package GameWorld;
 import java.util.ArrayList;
 import java.util.Random;
 
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.math.Vector2;
+import com.holmgren.ethan.NowYouSeaMe;
+
 import GameObjects.Background;
 import GameObjects.Diver;
 import GameObjects.Fish;
@@ -21,6 +24,12 @@ public class GameWorld {
     private Background space;
     private ArrayList<Fish> fishes = new ArrayList<Fish>();
     private boolean hidden;
+    private boolean tryAgain;
+    private boolean close;
+    private boolean youWin;
+    private double closeTimer;
+    private double tryAgainTimer;
+    private boolean tooSlow;
     int gameState;
     
     double clock;
@@ -42,24 +51,29 @@ public class GameWorld {
         	fishes.add(new Fish(rand.nextInt(1440), rand.nextInt(400)+40, rand.nextInt(11), 0.1f * rand.nextInt(5) + 0.5f ));
         }
         hidden = false;
+        tryAgain = false;
+        close = false;
+        youWin = false;
+        tooSlow = false;
+        closeTimer = 0;
+        tryAgainTimer = 0;
         gameState = 0;
-        
-        clock = 30;
+        clock = 15;
+        AssetLoader.song.play();
     }
     public void update(float delta) {
-        
+
         for( int i = 0; i < fishes.size(); i ++ ) {
         	fishes.get(i).update(delta);
         }
-        System.out.println(gameState);
         if( gameState == 1 || gameState == 3 )
         	status = diver.update(delta);
         
-        if( gameState == 1 ) {
+        if( gameState == 1 || gameState == 3 ) {
         	clock = clock - delta;
         }
         
-        if (status == 1 && gameState == 1 || gameState == 3) {
+        if (status == 1 && (gameState == 1 || gameState == 3)) {
         	background.update(delta, diver.getVelocity());
         	caveBackground.update(delta, diver.getVelocity());
         	shipBackground.update(delta, diver.getVelocity());
@@ -72,18 +86,39 @@ public class GameWorld {
         		hiddenDiver.setPosition(new Vector2(hiddenDiver.getPosition().x-diver.getVelocity().x, hiddenDiver.getPosition().y));
         	}
         } 
+        if(closeTimer > 0) {
+        	closeTimer -= delta;
+       	}
+        else {
+        	close = false;
+        	closeTimer = 0;
+        } 
+        if(tryAgainTimer > 0) {
+    	tryAgainTimer -= delta;
+    	}
+	    else {
+	    	tryAgain = false;
+	    	tryAgainTimer = 0;
+	    }
+        if(clock < 0) {
+        	tooSlow = true;
+        	gameState = 4;
+        }
     }
     public void hide() {
+    	if( gameState == 4 ) {
+    		Gdx.app.exit();
+    	}
     	if( gameState == 0 ) 
     		gameState = 1;
-    	else if ( gameState == 2)
+    	else if ( gameState == 2 )
     		gameState = 3;
     	else if ( !hidden ) {
     		hiddenDiver = new Diver(diver.getSuper().x, diver.getSuper().y, 20, 20);
     		hiddenDiver.setOpacity(0.2f);
     		hidden = true;
     		gameState = 2;
-    		clock = 60;
+    		clock = 45;
     		diver.setPosition(new Vector2(100,100));
     		diver.setSuper(new Vector2(100,100));
     		background.setPosition(new Vector2(0,0));
@@ -91,14 +126,34 @@ public class GameWorld {
     		shipBackground.setPosition(new Vector2(960,0));
     		cave.setPosition(new Vector2(480,0));
     		ship.setPosition(new Vector2(960,0));
-    		System.out.println("Here2");
     	} else {
-    		if (Math.abs(hiddenDiver.getX()-diver.getX()) < 10 && Math.abs(hiddenDiver.getY()-diver.getY()) < 10 ) {
-    			System.out.println("You Win!!!!");
+    		if (Math.abs(hiddenDiver.getX()-diver.getX()) < 20 && Math.abs(hiddenDiver.getY()-diver.getY()) < 20 ) {
+    			youWin = true;
+    			gameState = 4;
+    		} else if (Math.abs(hiddenDiver.getX()-diver.getX()) < 50 && Math.abs(hiddenDiver.getY()-diver.getY()) < 50 ) {
+    			close = true;
+    			closeTimer = 1;
+    			tryAgain = false;
+    			tryAgainTimer = 0;
     		} else {
-    			System.out.println("Try Again!");
+    			tryAgain = true;
+    			tryAgainTimer = 1;
+    			close = false;
+    			closeTimer = 0;
     		}
     	}
+    }
+    public boolean tooSlow() {
+    	return tooSlow;
+    }
+    public boolean youWin() {
+    	return youWin;
+    }
+    public boolean close() {
+    	return close;
+    }
+    public boolean tryAgain() {
+    	return tryAgain;
     }
     public int getState() {
     	return gameState;

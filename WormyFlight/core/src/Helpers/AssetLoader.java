@@ -3,6 +3,7 @@ package Helpers;
 import java.util.ArrayList;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.Sprite;
@@ -61,6 +62,8 @@ public class AssetLoader {
     public static Sprite fish11Sprite;
     
     public static BitmapFont font;
+    
+    public static Sound song;
     
     public static void load() {
         Diver = new Texture(Gdx.files.internal("android/assets/data/Diver.png"));
@@ -156,6 +159,8 @@ public class AssetLoader {
         }
      
         font = new BitmapFont(Gdx.files.internal("android/assets/data/font.fnt"), true);
+        
+        song = Gdx.audio.newSound(Gdx.files.internal("android/assets/data/underwater2.mp3"));
         
     }
     

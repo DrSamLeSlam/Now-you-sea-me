@@ -1,8 +1,9 @@
 package GameObjects;
 
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.math.Vector2;
 
-import Helpers.AssetLoader;
+import GameWorld.GameRenderer;
 
 public class Diver {
 	private Vector2 superPosition;
@@ -26,8 +27,6 @@ public class Diver {
     private int height;
     
     private float opacity;
-    
-    private boolean hidden = false;
 
     public Diver(float x, float y, int width, int height){
         this.width = width;
@@ -143,9 +142,10 @@ public class Diver {
     	superPosition = superPos;
     }
     public void Move(int mouseX, int mouseY) {
-    	mousePos.x=mouseX / 2;
-    	mousePos.y=mouseY / 2;
+    	mousePos.x = GameRenderer.mousePosition.x;
+    	mousePos.y = GameRenderer.mousePosition.y;
     }
+    
     public void setOpacity(float O) {
     	opacity = O;
     }

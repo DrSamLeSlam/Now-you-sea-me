@@ -38,6 +38,11 @@ public class AssetLoader {
     public static ArrayList<Sprite> fishSpritesFlipped = new ArrayList<Sprite>();
     private static Sprite temp;
     
+    public static Texture volumeButton;
+    public static Sprite volumeSprite;
+    public static Texture muteButton;
+    public static Sprite muteSprite;
+    
     public static Texture fish1;
     public static Sprite fish1Sprite;
     public static Texture fish2;
@@ -157,6 +162,14 @@ public class AssetLoader {
         	temp.flip(true, false);
         	fishSpritesFlipped.add(temp);
         }
+        
+        volumeButton = new Texture(Gdx.files.internal("android/assets/data/volumebutton2.png"));
+        volumeSprite = new Sprite(volumeButton);
+        volumeSprite.flip(false, true);
+        
+        muteButton = new Texture(Gdx.files.internal("android/assets/data/mutebutton2.png"));
+        muteSprite = new Sprite(muteButton);
+        muteSprite.flip(false, true);
      
         font = new BitmapFont(Gdx.files.internal("android/assets/data/font.fnt"), true);
         

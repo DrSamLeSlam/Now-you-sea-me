@@ -31,6 +31,7 @@ public class GameWorld {
     private double tryAgainTimer;
     private boolean tooSlow;
     int gameState;
+    public static int volumeState = 1;
     
     double clock;
     
@@ -58,7 +59,7 @@ public class GameWorld {
         closeTimer = 0;
         tryAgainTimer = 0;
         gameState = 0;
-        clock = 15;
+        clock = 25;
         AssetLoader.song.play();
     }
     public void update(float delta) {
@@ -103,6 +104,12 @@ public class GameWorld {
         if(clock < 0) {
         	tooSlow = true;
         	gameState = 4;
+        }
+        if (volumeState == 1){
+        	AssetLoader.song.resume();
+        }
+        if (volumeState == -1){
+        	AssetLoader.song.pause();
         }
     }
     public void hide() {
@@ -157,6 +164,9 @@ public class GameWorld {
     }
     public int getState() {
     	return gameState;
+    }
+    public int getVolumeState(){
+    	return volumeState;
     }
     public int getClock() {
     	return (int)clock;

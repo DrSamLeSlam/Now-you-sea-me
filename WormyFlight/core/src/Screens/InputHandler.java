@@ -5,6 +5,7 @@ import com.badlogic.gdx.InputProcessor;
 import com.badlogic.gdx.math.Vector2;
 import GameObjects.Diver;
 import GameWorld.GameWorld;
+import Helpers.AssetLoader;
 
 public class InputHandler implements InputProcessor {
     private Diver myDiver;
@@ -16,10 +17,14 @@ public class InputHandler implements InputProcessor {
     @Override
     public boolean touchDown(int screenX, int screenY, int pointer, int button) {
     	myWorld.hide();
+    	
     	return true;
     }
     @Override
     public boolean keyDown(int keycode) {
+    	if (keycode == Input.Keys.M){
+    		GameWorld.volumeState*=-1;
+    	}
         return false;
     }
 

@@ -137,6 +137,12 @@ public class GameRenderer {
         			myWorld.getFish(i).getSize().x, myWorld.getFish(i).getSize().y);
         	}
         }
+        if (myWorld.getVolumeState() == 1){
+        	spriteBatch.draw(AssetLoader.volumeSprite,430,10,30,30);
+        }
+        if (myWorld.getVolumeState() == -1){
+        	spriteBatch.draw(AssetLoader.muteSprite,430,10,30,30);
+        }
         
         AssetLoader.font.draw(spriteBatch, Integer.toString(myWorld.getClock()), 5, 7, 0, 10, false);
         
@@ -165,10 +171,6 @@ public class GameRenderer {
         spriteBatch.draw(AssetLoader.gradiantSprite, 0, diver.getY()-200, 960, 540);
         
         spriteBatch.end();
-        
-        shapeRenderer.begin(ShapeType.Filled);
-        //if we need any shapes...
-        shapeRenderer.end();
 
     }
 }
